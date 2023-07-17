@@ -2,8 +2,8 @@ const form = document.querySelector('form#find-range')
 const message = document.querySelector('#message')
 
 form.addEventListener('submit', async (e) => {
-    console.log('test')
     e.preventDefault()
+    hideMessage()
     const number = form.number.value
     if (!number) {
         return

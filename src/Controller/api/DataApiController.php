@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller\api;
 
-use App\Core\Exception\ApiException;
 use App\Service\ScopeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -18,9 +17,9 @@ class DataApiController extends AbstractController
     ) {
     }
 
-    public function __invoke(int $test): JsonResponse
+    public function __invoke(int $period): JsonResponse
     {
-        $data = $this->scopeService->getScopesByPeriod($test);
+        $data = $this->scopeService->getScopesByPeriod($period);
         return $this->json($data);
     }
 }
