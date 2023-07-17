@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
     if (!number) {
         return
     }
-    const response = await fetch(`http://localhost/api/scope/period/${number}`)
+    const response = await fetch(`http://localhost:1234/api/scope/period/${number}`)
     const scopes = await response.json()
     if (false === response.ok) {
         errorMessage(scopes?.error?.message || 'Непредвиденная ошибка сервера')
