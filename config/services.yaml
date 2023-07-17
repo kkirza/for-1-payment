@@ -1,0 +1,23 @@
+parameters:
+    exceptions:
+        App\Core\Exception\User\ValidationException: { code: 400, hidden: false }
+        App\Core\Exception\RequestBodyConvertException: { code: 400, hidden: false }
+        App\Core\Exception\UserNotFoundException: { code: 400, hidden: false }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    App\Core\ExceptionHandler\ExceptionMappingResolver:
+        arguments: [ '%exceptions%' ]
+    App\Core\Listener\ApiExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, priority: 10 }

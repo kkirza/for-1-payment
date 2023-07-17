@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Тестовое задание
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <main class="wrapper">
+        <div id="message">
+        </div>
+        <form id="find-range">
+            <h3 class="h5 mb-3 fw-normal">Введите число от 1 до 19</h3>
+            <div class="form-floating mb-3">
+                <input name="number" type="number" class="form-control" id="floatingInput">
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Проверить</button>
+        </form>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="{{ asset('/js/main.js') }}" ></script>
+{% endblock %}
